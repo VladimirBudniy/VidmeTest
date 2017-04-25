@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cSu-Un-TVQ">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,15 +15,15 @@
             <objects>
                 <tableViewController id="cSu-Un-TVQ" customClass="ListViewController" customModule="VidMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="28" sectionFooterHeight="28" id="BcR-8V-dcz">
-                        <rect key="frame" x="0.0" y="0.0" width="371" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListViewCell" id="26g-Wc-OZP" customClass="ListViewCell" customModule="VidMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="371" height="320"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="26g-Wc-OZP" id="mPf-FP-iXP">
-                                    <rect key="frame" x="0.0" y="0.0" width="371" height="319"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mYy-SO-7Rh">
@@ -30,9 +31,48 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drq-H4-sQu">
+                                            <rect key="frame" x="10" y="316" width="355" height="2"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="ZNO-oI-ARm"/>
+                                            </constraints>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Ro-g6D">
+                                            <rect key="frame" x="10" y="280" width="355" height="34"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Ylc-Rz-sgu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="247.5" height="34"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1250 likes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" preferredMaxLayoutWidth="176.5" translatesAutoresizingMaskIntoConstraints="NO" id="LLt-ca-dVF">
+                                                    <rect key="frame" x="248.5" y="0.0" width="106.5" height="34"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="6Mf-72-Yg1"/>
+                                                <constraint firstItem="LLt-ca-dVF" firstAttribute="width" relation="greaterThanOrEqual" secondItem="yf8-Ro-g6D" secondAttribute="width" multiplier="0.3" id="mex-Fl-oyf"/>
+                                                <constraint firstItem="LLt-ca-dVF" firstAttribute="width" relation="lessThanOrEqual" secondItem="yf8-Ro-g6D" secondAttribute="width" multiplier="0.3" id="rEc-Or-OmP"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="drq-H4-sQu" firstAttribute="leading" secondItem="mPf-FP-iXP" secondAttribute="leading" constant="10" id="875-f5-NPl"/>
+                                        <constraint firstItem="yf8-Ro-g6D" firstAttribute="leading" secondItem="mPf-FP-iXP" secondAttribute="leading" constant="10" id="HK2-tH-Lvk"/>
+                                        <constraint firstAttribute="trailing" secondItem="drq-H4-sQu" secondAttribute="trailing" constant="10" id="W3c-wx-lqP"/>
+                                        <constraint firstAttribute="trailing" secondItem="yf8-Ro-g6D" secondAttribute="trailing" constant="10" id="jhI-Jj-UcK"/>
+                                        <constraint firstItem="drq-H4-sQu" firstAttribute="top" secondItem="yf8-Ro-g6D" secondAttribute="bottom" constant="2" id="pFM-ow-gth"/>
+                                        <constraint firstAttribute="bottom" secondItem="drq-H4-sQu" secondAttribute="bottom" constant="1" id="rSF-ro-ojO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="videoImageView" destination="mYy-SO-7Rh" id="cec-jG-xzq"/>
                                 </connections>
@@ -43,12 +83,10 @@
                             <outlet property="delegate" destination="cSu-Un-TVQ" id="2QN-SO-Cpq"/>
                         </connections>
                     </tableView>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="371" height="667"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK0-iO-wPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-174" y="28"/>
+            <point key="canvasLocation" x="-174.06296851574214" y="28"/>
         </scene>
     </scenes>
 </document>
