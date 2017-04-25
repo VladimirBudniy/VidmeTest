@@ -20,15 +20,17 @@ class ListViewController: UITableViewController, AlertViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.settingTableVie()
-        
-        loadVideos(URLPaths().featured, videosBlock: self.reloadViewWith, errorBlock: self.loadError)
-    
+        self.settingTableView()
+        self.load()
     }
     
     // MARK: - Private
     
-    fileprivate func settingTableVie() {
+    func load() {
+        loadVideos(URLPaths().featured, videosBlock: self.reloadViewWith, errorBlock: self.loadError)
+    }
+    
+    func settingTableView() {
         let tableView = self.tableView
         tableView?.contentInset.top = 20
         tableView?.show(&self.spinner)
@@ -36,18 +38,18 @@ class ListViewController: UITableViewController, AlertViewController {
         self.addRefreshControl()
     }
     
-    private func showAlertController(title: String? = nil, message: String) {
+    func showAlertController(title: String? = nil, message: String) {
         self.present(self.alertViewController(title: title, message: message), animated: true, completion: nil)
     }
     
     // MARK: - Blocks methods
     
-    private func loadError(error: String) {
+    func loadError(error: String) {
         self.tableView?.refreshControl?.endRefreshing()
         self.showAlertController(title: "", message: error)
     }
     
-    private func reloadViewWith(_ videos: [Video]) {
+    func reloadViewWith(_ videos: [Video]) {
         if videos.count != 0 {
             self.videos.append(contentsOf: videos)
             self.tableView?.reloadData()

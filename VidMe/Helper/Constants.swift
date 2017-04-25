@@ -10,8 +10,8 @@ import Foundation
 
 struct URLPaths {
     let featured = "https://api.vid.me/videos/featured"
-    let channels = "https://api.vid.me/videos/new"
-    let channelItems = "https://api.vid.me/videos/following"
+    let new = "https://api.vid.me/videos/new"
+    let following = "https://api.vid.me/videos/following"
 }
 
 struct UsersPaths {

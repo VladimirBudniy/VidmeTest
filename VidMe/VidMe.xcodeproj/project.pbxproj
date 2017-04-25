@@ -25,6 +25,7 @@
 		CFD66CCB1EAF585000944701 /* libwebp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD66CC81EAF585000944701 /* libwebp.framework */; };
 		CFD66CCC1EAF585000944701 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD66CC91EAF585000944701 /* SDWebImage.framework */; };
 		CFD66CD31EAF6DC500944701 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CD21EAF6DC500944701 /* UIView+Extension.swift */; };
+		CFD66CD61EAF8E9900944701 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CD51EAF8E9900944701 /* NewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		CFD66CC81EAF585000944701 /* libwebp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libwebp.framework; path = "Pods/../build/Debug-iphoneos/libwebp/libwebp.framework"; sourceTree = "<group>"; };
 		CFD66CC91EAF585000944701 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		CFD66CD21EAF6DC500944701 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CFD66CD51EAF8E9900944701 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		CFD66C8F1EAF219900944701 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CFD66CD41EAF8E7500944701 /* NewViewController */,
 				CFD66C971EAF224C00944701 /* ListViewController */,
 			);
 			path = UI;
@@ -214,6 +217,14 @@
 				CFD66CD21EAF6DC500944701 /* UIView+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CFD66CD41EAF8E7500944701 /* NewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CFD66CD51EAF8E9900944701 /* NewViewController.swift */,
+			);
+			path = NewViewController;
 			sourceTree = "<group>";
 		};
 		E3BD75C417087EEAD988F801 /* Pods */ = {
@@ -354,6 +365,7 @@
 				CFD66C991EAF225B00944701 /* ListViewController.swift in Sources */,
 				CFD66CBF1EAF521B00944701 /* AlertViewController.swift in Sources */,
 				CFD66CB51EAF3D0000944701 /* Video+Parser.swift in Sources */,
+				CFD66CD61EAF8E9900944701 /* NewViewController.swift in Sources */,
 				CFD66CA51EAF309D00944701 /* Video.swift in Sources */,
 				CFD66CC11EAF521B00944701 /* SpinnerView.swift in Sources */,
 				CFD66CB31EAF3CDB00944701 /* Network.swift in Sources */,
