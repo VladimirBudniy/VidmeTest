@@ -13,6 +13,7 @@ class ListViewController: UITableViewController, AlertViewController {
     let alertViewController = UIAlertController()
     let identifier = String(describing: ListViewCell.self)
     var videos = [Video]()
+    var spinner: SpinnerView?
 
     // MARK: - View LifeCycle
     
@@ -20,24 +21,18 @@ class ListViewController: UITableViewController, AlertViewController {
         super.viewDidLoad()
         
         self.settingTableVie()
-    
-        
-        
         
         loadVideos(URLPaths().featured, videosBlock: self.reloadViewWith, errorBlock: self.loadError)
-    
-    
-    
-    
-    
-    
     
     }
     
     // MARK: - Private
     
     fileprivate func settingTableVie() {
-        self.tableView.contentInset.top = 20
+        let tableView = self.tableView
+        tableView?.contentInset.top = 20
+        tableView?.show(&self.spinner)
+        
         self.addRefreshControl()
     }
     
@@ -55,8 +50,9 @@ class ListViewController: UITableViewController, AlertViewController {
     private func reloadViewWith(_ videos: [Video]) {
         if videos.count != 0 {
             self.videos.append(contentsOf: videos)
-//            self.tableView?.reloadData()
-//            self.tableView?.refreshControl?.endRefreshing()
+            self.tableView?.reloadData()
+            self.tableView.remove(&self.spinner)
+            self.tableView?.refreshControl?.endRefreshing()
         }
     }
     
@@ -71,16 +67,16 @@ class ListViewController: UITableViewController, AlertViewController {
     @objc private func refreshLoad() {
 
     }
-    
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.videos.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! ListViewCell
-        cell.fillWithModel("", tableView)
+        cell.fillWithModel(self.videos[indexPath.row], tableView)
         tableView.rowHeight = cell.frame.height
 
         return cell

@@ -14,32 +14,32 @@
         <scene sceneID="15W-uB-YlS">
             <objects>
                 <tableViewController id="cSu-Un-TVQ" customClass="ListViewController" customModule="VidMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="28" sectionFooterHeight="28" id="BcR-8V-dcz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="320" sectionHeaderHeight="28" sectionFooterHeight="28" id="BcR-8V-dcz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListViewCell" id="26g-Wc-OZP" customClass="ListViewCell" customModule="VidMe" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListViewCell" id="26g-Wc-OZP" customClass="ListViewCell" customModule="VidMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="26g-Wc-OZP" id="mPf-FP-iXP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mYy-SO-7Rh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drq-H4-sQu">
-                                            <rect key="frame" x="10" y="316" width="355" height="2"/>
+                                            <rect key="frame" x="10" y="317" width="355" height="2"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="ZNO-oI-ARm"/>
                                             </constraints>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Ro-g6D">
-                                            <rect key="frame" x="10" y="280" width="355" height="34"/>
+                                            <rect key="frame" x="10" y="281" width="355" height="34"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Ylc-Rz-sgu">
                                                     <rect key="frame" x="0.0" y="0.0" width="247.5" height="34"/>
@@ -74,7 +74,10 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="likesCountLabel" destination="LLt-ca-dVF" id="B4F-3d-tRV"/>
+                                    <outlet property="separateView" destination="drq-H4-sQu" id="8Ab-Mr-c0L"/>
                                     <outlet property="videoImageView" destination="mYy-SO-7Rh" id="cec-jG-xzq"/>
+                                    <outlet property="videoNameLabel" destination="Ylc-Rz-sgu" id="GgT-ZX-mAJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK0-iO-wPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-174.06296851574214" y="28"/>
+            <point key="canvasLocation" x="-391" y="-73"/>
         </scene>
     </scenes>
 </document>
