@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6669DA27CFF19AD472DED85F /* Pods_VidMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0802286E9F7AE7E889E4193 /* Pods_VidMe.framework */; };
 		CFD66C7D1EAF216100944701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C7C1EAF216100944701 /* AppDelegate.swift */; };
 		CFD66C821EAF216100944701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C801EAF216100944701 /* Main.storyboard */; };
 		CFD66C841EAF216100944701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C831EAF216100944701 /* Assets.xcassets */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91AEEA2DC016913EFB57A1D3 /* Pods-VidMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-VidMe/Pods-VidMe.release.xcconfig"; sourceTree = "<group>"; };
+		94A2B6B63F9C9070D32BCD08 /* Pods-VidMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VidMe/Pods-VidMe.debug.xcconfig"; sourceTree = "<group>"; };
+		B0802286E9F7AE7E889E4193 /* Pods_VidMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD66C791EAF216100944701 /* VidMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD66C7C1EAF216100944701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD66C811EAF216100944701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,12 +37,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6669DA27CFF19AD472DED85F /* Pods_VidMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1D745E69614DD6C43468FFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0802286E9F7AE7E889E4193 /* Pods_VidMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CFD66C701EAF216100944701 = {
 			isa = PBXGroup;
 			children = (
@@ -47,6 +60,8 @@
 				CFD66C9E1EAF274300944701 /* Helper */,
 				CFD66C9D1EAF273200944701 /* Support */,
 				CFD66C7A1EAF216100944701 /* Products */,
+				E3BD75C417087EEAD988F801 /* Pods */,
+				C1D745E69614DD6C43468FFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +149,15 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		E3BD75C417087EEAD988F801 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94A2B6B63F9C9070D32BCD08 /* Pods-VidMe.debug.xcconfig */,
+				91AEEA2DC016913EFB57A1D3 /* Pods-VidMe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFD66C8B1EAF216100944701 /* Build configuration list for PBXNativeTarget "VidMe" */;
 			buildPhases = (
+				BD2566F1AE30DB9E01E70B3A /* [CP] Check Pods Manifest.lock */,
 				CFD66C751EAF216100944701 /* Sources */,
 				CFD66C761EAF216100944701 /* Frameworks */,
 				CFD66C771EAF216100944701 /* Resources */,
+				E9569EC2EA12C539F666C730 /* [CP] Embed Pods Frameworks */,
+				F649DB136D84FC80684DFCE0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +227,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD2566F1AE30DB9E01E70B3A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E9569EC2EA12C539F666C730 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VidMe/Pods-VidMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F649DB136D84FC80684DFCE0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VidMe/Pods-VidMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CFD66C751EAF216100944701 /* Sources */ = {
@@ -328,6 +403,7 @@
 		};
 		CFD66C8C1EAF216100944701 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94A2B6B63F9C9070D32BCD08 /* Pods-VidMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VidMe/Info.plist;
@@ -341,6 +417,7 @@
 		};
 		CFD66C8D1EAF216100944701 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91AEEA2DC016913EFB57A1D3 /* Pods-VidMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VidMe/Info.plist;
