@@ -21,6 +21,10 @@
 		CFD66CBF1EAF521B00944701 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CB91EAF521B00944701 /* AlertViewController.swift */; };
 		CFD66CC11EAF521B00944701 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CBD1EAF521B00944701 /* SpinnerView.swift */; };
 		CFD66CC21EAF521B00944701 /* SpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD66CBE1EAF521B00944701 /* SpinnerView.xib */; };
+		CFD66CCA1EAF585000944701 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD66CC71EAF585000944701 /* Alamofire.framework */; };
+		CFD66CCB1EAF585000944701 /* libwebp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD66CC81EAF585000944701 /* libwebp.framework */; };
+		CFD66CCC1EAF585000944701 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD66CC91EAF585000944701 /* SDWebImage.framework */; };
+		CFD66CD31EAF6DC500944701 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CD21EAF6DC500944701 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,10 @@
 		CFD66CB91EAF521B00944701 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		CFD66CBD1EAF521B00944701 /* SpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		CFD66CBE1EAF521B00944701 /* SpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpinnerView.xib; sourceTree = "<group>"; };
+		CFD66CC71EAF585000944701 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/VidMe-fziefurujcdfffgpawrtjehnemsg/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		CFD66CC81EAF585000944701 /* libwebp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libwebp.framework; path = "Pods/../build/Debug-iphoneos/libwebp/libwebp.framework"; sourceTree = "<group>"; };
+		CFD66CC91EAF585000944701 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		CFD66CD21EAF6DC500944701 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD66CCA1EAF585000944701 /* Alamofire.framework in Frameworks */,
+				CFD66CCB1EAF585000944701 /* libwebp.framework in Frameworks */,
+				CFD66CCC1EAF585000944701 /* SDWebImage.framework in Frameworks */,
 				6669DA27CFF19AD472DED85F /* Pods_VidMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +71,9 @@
 		C1D745E69614DD6C43468FFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFD66CC71EAF585000944701 /* Alamofire.framework */,
+				CFD66CC81EAF585000944701 /* libwebp.framework */,
+				CFD66CC91EAF585000944701 /* SDWebImage.framework */,
 				CFD66CAB1EAF343900944701 /* Alamofire.framework */,
 				B0802286E9F7AE7E889E4193 /* Pods_VidMe.framework */,
 			);
@@ -197,6 +211,7 @@
 		CFD66CC61EAF550300944701 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CFD66CD21EAF6DC500944701 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -342,6 +357,7 @@
 				CFD66CA51EAF309D00944701 /* Video.swift in Sources */,
 				CFD66CC11EAF521B00944701 /* SpinnerView.swift in Sources */,
 				CFD66CB31EAF3CDB00944701 /* Network.swift in Sources */,
+				CFD66CD31EAF6DC500944701 /* UIView+Extension.swift in Sources */,
 				CFD66CB01EAF386000944701 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +480,11 @@
 			baseConfigurationReference = 94A2B6B63F9C9070D32BCD08 /* Pods-VidMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/libwebp",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+				);
 				INFOPLIST_FILE = VidMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -478,6 +499,11 @@
 			baseConfigurationReference = 91AEEA2DC016913EFB57A1D3 /* Pods-VidMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/libwebp",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+				);
 				INFOPLIST_FILE = VidMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

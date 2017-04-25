@@ -21,24 +21,18 @@ class ListViewController: UITableViewController, AlertViewController {
         super.viewDidLoad()
         
         self.settingTableVie()
-    
         
-        
-        self.showSpinner()
         loadVideos(URLPaths().featured, videosBlock: self.reloadViewWith, errorBlock: self.loadError)
-    
-    
-    
-    
-    
-    
     
     }
     
     // MARK: - Private
     
     fileprivate func settingTableVie() {
-        self.tableView.contentInset.top = 20
+        let tableView = self.tableView
+        tableView?.contentInset.top = 20
+        tableView?.show(&self.spinner)
+        
         self.addRefreshControl()
     }
     
@@ -57,7 +51,7 @@ class ListViewController: UITableViewController, AlertViewController {
         if videos.count != 0 {
             self.videos.append(contentsOf: videos)
             self.tableView?.reloadData()
-            self.removeSpinnerView()
+            self.tableView.remove(&self.spinner)
             self.tableView?.refreshControl?.endRefreshing()
         }
     }
@@ -73,37 +67,7 @@ class ListViewController: UITableViewController, AlertViewController {
     @objc private func refreshLoad() {
 
     }
-    
-    // MARK: - SpinnerView
-    
-    fileprivate func showSpinner(color: UIColor = UIColor.white) {
-        var view = self.spinner
-        if view == nil {
-            view = SpinnerView.loadSpinner()
-            view?.spinner?.color = color
-            self.spinner = view
-            view?.frame = self.tableView.frame
-            view?.spinner?.startAnimating()
-        }
-        
-        UIView.animate(withDuration: 1.0, animations: {
-            view?.alpha = 0.6
-            self.tableView.addSubview(view!)
-        })
-    }
-    
-    fileprivate func removeSpinnerView() {
-        let view = self.spinner
-        UIView.animate(withDuration: 1.0, animations: {
-            view?.alpha = 0.1
-        }, completion: { loaded in
-            if loaded {
-                view?.removeFromSuperview()
-                self.spinner = nil;
-            }
-        })
-    }
-    
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,6 +76,8 @@ class ListViewController: UITableViewController, AlertViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! ListViewCell
+        cell.prepareForReuse()
+        
         cell.fillWithModel(self.videos[indexPath.row], tableView)
         tableView.rowHeight = cell.frame.height
 
