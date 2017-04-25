@@ -38,7 +38,7 @@ class ListViewCell: UITableViewCell {
             self.settingCellSizeWith(tableView)
         }
     }
-
+    
     // MARK: - Private
     
     fileprivate func settingCellSizeWith(_ tableView: UITableView) {

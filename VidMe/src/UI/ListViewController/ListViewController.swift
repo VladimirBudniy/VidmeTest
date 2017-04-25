@@ -76,8 +76,6 @@ class ListViewController: UITableViewController, AlertViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! ListViewCell
-        cell.prepareForReuse()
-        
         cell.fillWithModel(self.videos[indexPath.row], tableView)
         tableView.rowHeight = cell.frame.height
 
