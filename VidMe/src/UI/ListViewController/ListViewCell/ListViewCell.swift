@@ -11,27 +11,28 @@ import UIKit
 class ListViewCell: UITableViewCell {
     
     @IBOutlet var videoImageView: UIImageView?
+    @IBOutlet var videoNameLabel: UILabel?
+    @IBOutlet var likesCountLabel: UILabel?
 
+    @IBOutlet weak var separateView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
  
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     // MARK: - Public
     
-    func fillWithModel(_ model: String?, _ tableView: UITableView) {
-        self.settingCellSizeWith(tableView)
-  
+    func fillWithModel(_ model: Video?, _ tableView: UITableView) {
+        
+        if let model = model {
+            self.settingCellSizeWith(tableView)
+            
+            self.videoNameLabel?.text = model.name
+            self.likesCountLabel?.text = ((model.likesCount)?.description)! + " " + "likes"
+        }
     }
-    
-    
-    
+
     // MARK: - Private
     
     fileprivate func settingCellSizeWith(_ tableView: UITableView) {
@@ -39,6 +40,5 @@ class ListViewCell: UITableViewCell {
         self.videoImageView?.frame.size.height = height
         self.frame.size = CGSize(width: tableView.frame.width, height: height + 40)
     }
-    
     
 }
