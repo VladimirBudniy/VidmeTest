@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		CFD66C7D1EAF216100944701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C7C1EAF216100944701 /* AppDelegate.swift */; };
-		CFD66C7F1EAF216100944701 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C7E1EAF216100944701 /* ViewController.swift */; };
 		CFD66C821EAF216100944701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C801EAF216100944701 /* Main.storyboard */; };
 		CFD66C841EAF216100944701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C831EAF216100944701 /* Assets.xcassets */; };
 		CFD66C871EAF216100944701 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C851EAF216100944701 /* LaunchScreen.storyboard */; };
+		CFD66C991EAF225B00944701 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C981EAF225B00944701 /* ListViewController.swift */; };
+		CFD66C9C1EAF228A00944701 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C9B1EAF228A00944701 /* ListViewCell.swift */; };
+		CFD66CA01EAF276400944701 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C9F1EAF276400944701 /* Double+Extension.swift */; };
+		CFD66CA51EAF309D00944701 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CA41EAF309D00944701 /* Video.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CFD66C791EAF216100944701 /* VidMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD66C7C1EAF216100944701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CFD66C7E1EAF216100944701 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CFD66C811EAF216100944701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFD66C831EAF216100944701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFD66C861EAF216100944701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFD66C881EAF216100944701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD66C981EAF225B00944701 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		CFD66C9B1EAF228A00944701 /* ListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		CFD66C9F1EAF276400944701 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		CFD66CA41EAF309D00944701 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,8 @@
 			children = (
 				CFD66C8E1EAF219200944701 /* src */,
 				CFD66C7B1EAF216100944701 /* VidMe */,
+				CFD66C9E1EAF274300944701 /* Helper */,
+				CFD66C9D1EAF273200944701 /* Support */,
 				CFD66C7A1EAF216100944701 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				CFD66C7C1EAF216100944701 /* AppDelegate.swift */,
-				CFD66C7E1EAF216100944701 /* ViewController.swift */,
 				CFD66C801EAF216100944701 /* Main.storyboard */,
 				CFD66C831EAF216100944701 /* Assets.xcassets */,
 				CFD66C851EAF216100944701 /* LaunchScreen.storyboard */,
@@ -77,6 +84,7 @@
 		CFD66C8F1EAF219900944701 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CFD66C971EAF224C00944701 /* ListViewController */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -84,8 +92,49 @@
 		CFD66C901EAF21A100944701 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CFD66CA31EAF309600944701 /* Video */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CFD66C971EAF224C00944701 /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CFD66C9A1EAF227700944701 /* ListViewCell */,
+				CFD66C981EAF225B00944701 /* ListViewController.swift */,
+			);
+			path = ListViewController;
+			sourceTree = "<group>";
+		};
+		CFD66C9A1EAF227700944701 /* ListViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CFD66C9B1EAF228A00944701 /* ListViewCell.swift */,
+			);
+			path = ListViewCell;
+			sourceTree = "<group>";
+		};
+		CFD66C9D1EAF273200944701 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CFD66C9F1EAF276400944701 /* Double+Extension.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		CFD66C9E1EAF274300944701 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		CFD66CA31EAF309600944701 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				CFD66CA41EAF309D00944701 /* Video.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,8 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFD66C7F1EAF216100944701 /* ViewController.swift in Sources */,
+				CFD66CA01EAF276400944701 /* Double+Extension.swift in Sources */,
+				CFD66C9C1EAF228A00944701 /* ListViewCell.swift in Sources */,
 				CFD66C7D1EAF216100944701 /* AppDelegate.swift in Sources */,
+				CFD66C991EAF225B00944701 /* ListViewController.swift in Sources */,
+				CFD66CA51EAF309D00944701 /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +375,7 @@
 				CFD66C8D1EAF216100944701 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
