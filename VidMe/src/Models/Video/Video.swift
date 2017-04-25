@@ -11,16 +11,16 @@ import Foundation
 struct Video {
     var id: String?
     var name: String?
+    var likesCount: Int?
     var videoURL: String?
     var imageURL: String?
 }
 
 extension Video {
 
-    func createVideo(_ id: String, _ name: String?, _ videoURL: String? , _ imageURL: String? ) -> Video {
-        return Video(id: id, name: name, videoURL: videoURL, imageURL: imageURL)
+    static func create(_ id: String, _ name: String?, _ likesCount: Int?, _ videoURL: String? , _ imageURL: String? ) -> Video {
+        return Video(id: id, name: name, likesCount:likesCount, videoURL: videoURL, imageURL: imageURL)
     }
-    
     
     
 }
