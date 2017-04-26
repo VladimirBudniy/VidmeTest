@@ -31,7 +31,6 @@ func loadVideos(_ stringURL: String, _ videosBlock:@escaping videos, _ errorBloc
     }
 }
 
-
 func loadImages(_ videos: [Video], _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {
     let count = videos.count
     var listVideos = [Video]()

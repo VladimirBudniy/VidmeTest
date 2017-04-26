@@ -177,7 +177,7 @@
         <!--Feed-->
         <scene sceneID="2eI-SH-oQV">
             <objects>
-                <viewController id="4Og-o4-7iT" sceneMemberID="viewController">
+                <viewController id="4Og-o4-7iT" customClass="LoginViewController" customModule="VidMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S2J-Im-lFQ"/>
                         <viewControllerLayoutGuide type="bottom" id="nPI-V7-9WP"/>
@@ -189,7 +189,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdT-DN-fk4">
                                 <rect key="frame" x="37" y="123.5" width="300" height="300"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Twb-3k-dKR">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Twb-3k-dKR">
                                         <rect key="frame" x="30" y="60" width="240" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="rrv-g6-izm"/>
@@ -197,6 +197,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4Og-o4-7iT" id="Lhp-vl-eJh"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nAO-Xt-WbV">
                                         <rect key="frame" x="30" y="110" width="240" height="30"/>
@@ -205,7 +208,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="4Og-o4-7iT" id="n1j-SS-Qc9"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXi-Yx-ChI">
                                         <rect key="frame" x="30" y="160" width="240" height="30"/>
@@ -217,6 +223,14 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onLoginButton:" destination="4Og-o4-7iT" eventType="touchUpInside" id="Qgd-Hc-Lhf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -262,6 +276,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" id="1jD-DN-rrN"/>
+                    <connections>
+                        <outlet property="loginButton" destination="IXi-Yx-ChI" id="w5U-i5-0bC"/>
+                        <outlet property="loginTextField" destination="Twb-3k-dKR" id="KWs-cm-6Ew"/>
+                        <outlet property="passwordTextField" destination="nAO-Xt-WbV" id="sqx-rD-ip1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlX-Ee-KzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

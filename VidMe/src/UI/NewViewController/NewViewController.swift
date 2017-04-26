@@ -10,6 +10,8 @@ import UIKit
 
 class NewViewController: FeaturedViewController {
     
+    // MARK: - View LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

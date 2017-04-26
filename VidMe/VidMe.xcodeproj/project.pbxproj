@@ -10,6 +10,8 @@
 		794A4145CFDD11F418E2154D /* Pods_VidMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8288C6CDAE204BF94D902617 /* Pods_VidMe.framework */; };
 		CF963A3E1EB09C01004B7766 /* FeaturedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF963A3C1EB09C01004B7766 /* FeaturedViewCell.swift */; };
 		CF963A3F1EB09C01004B7766 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF963A3D1EB09C01004B7766 /* FeaturedViewController.swift */; };
+		CF963A421EB09EF5004B7766 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF963A411EB09EF5004B7766 /* LoginViewController.swift */; };
+		CF963A441EB0C80E004B7766 /* Network+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF963A431EB0C80E004B7766 /* Network+Auth.swift */; };
 		CFD66C7D1EAF216100944701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C7C1EAF216100944701 /* AppDelegate.swift */; };
 		CFD66C821EAF216100944701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C801EAF216100944701 /* Main.storyboard */; };
 		CFD66C841EAF216100944701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C831EAF216100944701 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		8288C6CDAE204BF94D902617 /* Pods_VidMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF963A3C1EB09C01004B7766 /* FeaturedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewCell.swift; sourceTree = "<group>"; };
 		CF963A3D1EB09C01004B7766 /* FeaturedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
+		CF963A411EB09EF5004B7766 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CF963A431EB0C80E004B7766 /* Network+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Network+Auth.swift"; sourceTree = "<group>"; };
 		CFD66C791EAF216100944701 /* VidMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD66C7C1EAF216100944701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD66C811EAF216100944701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +104,14 @@
 			path = FeaturedViewCell;
 			sourceTree = "<group>";
 		};
+		CF963A401EB09EDF004B7766 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CF963A411EB09EF5004B7766 /* LoginViewController.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
 		CFD66C701EAF216100944701 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 		CFD66C8F1EAF219900944701 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CF963A401EB09EDF004B7766 /* LoginViewController */,
 				CF963A3A1EB09C01004B7766 /* FeaturedViewController */,
 				CFD66CD41EAF8E7500944701 /* NewViewController */,
 			);
@@ -191,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD66CB21EAF3CDB00944701 /* Network.swift */,
+				CF963A431EB0C80E004B7766 /* Network+Auth.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -352,7 +366,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF963A421EB09EF5004B7766 /* LoginViewController.swift in Sources */,
 				CFD66C7D1EAF216100944701 /* AppDelegate.swift in Sources */,
+				CF963A441EB0C80E004B7766 /* Network+Auth.swift in Sources */,
 				CFD66CBF1EAF521B00944701 /* AlertViewController.swift in Sources */,
 				CFD66CB51EAF3D0000944701 /* Video+Parser.swift in Sources */,
 				CFD66CD61EAF8E9900944701 /* NewViewController.swift in Sources */,
