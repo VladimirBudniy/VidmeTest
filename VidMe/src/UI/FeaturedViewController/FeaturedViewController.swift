@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class FeaturedViewController: UITableViewController, AlertViewController {
+class FeaturedViewController: UITableViewController, AlertViewController, UITabBarControllerDelegate {
     
     let alertViewController = UIAlertController()
     let identifier = String(describing: FeaturedViewCell.self)
@@ -22,6 +22,7 @@ class FeaturedViewController: UITableViewController, AlertViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.delegate = self
         self.settingTableView()
         self.load()
     }
@@ -75,8 +76,20 @@ class FeaturedViewController: UITableViewController, AlertViewController {
     @objc private func refreshLoad() {
 
     }
+    
+    // MARK: - AVPlayerViewController
+    
+    func playVideo(_ url: String) {
+        let videoURL = URL(string: url)
+        let player = AVPlayer(url: videoURL!)
+        let controller = AVPlayerViewController()
+        controller.player = player
+        self.present(controller, animated: true) {
+            controller.player!.play()
+        }
+    }
 
-    // MARK: - Table view data source
+    // MARK: - TableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.videos.count
@@ -96,16 +109,17 @@ class FeaturedViewController: UITableViewController, AlertViewController {
         }
     }
     
-    // MARK: - AVPlayerViewController
+    // MARK: - UITabBarControllerDelegate
     
-    func playVideo(_ url: String) {
-        let videoURL = URL(string: url)
-        let player = AVPlayer(url: videoURL!)
-        let controller = AVPlayerViewController()
-        controller.player = player
-        self.present(controller, animated: true) {
-            controller.player!.play()
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let index = tabBarController.selectedIndex
+        if index == 2 {
+            
+//            let controller = FeedViewController()
+            
         }
+        
+        print(index as Int)
     }
     
 }

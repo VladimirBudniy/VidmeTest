@@ -1,15 +1,15 @@
 //
-//  NewViewController.swift
+//  FeedViewController.swift
 //  VidMe
 //
-//  Created by Vladimir Budniy on 4/25/17.
+//  Created by Vladimir Budniy on 4/26/17.
 //  Copyright © 2017 Vladimir Budniy. All rights reserved.
 //
 
 import UIKit
 
-class NewViewController: FeaturedViewController {
-    
+class FeedViewController: FeaturedViewController {
+
     // MARK: - View LifeCycle
     
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class NewViewController: FeaturedViewController {
     }
     
     override func load() {
-        loadVideos(URLPaths().new, self.loadList, self.loadError)
+        loadVideos(URLPaths().featured, self.loadList, self.loadError)
     }
     
     // MARK: - Blocks methods
@@ -59,4 +59,5 @@ class NewViewController: FeaturedViewController {
             self.playVideo(stringURL)
         }
     }
+
 }

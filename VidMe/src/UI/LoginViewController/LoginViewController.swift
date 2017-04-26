@@ -27,8 +27,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
     }
     
     // MARK: - Login button action
