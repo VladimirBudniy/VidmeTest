@@ -15,7 +15,7 @@ class NewViewController: ListViewController {
     }
     
     override func load() {
-        loadVideos(URLPaths().new, videosBlock: self.reloadViewWith, errorBlock: self.loadError)
+        loadVideos(URLPaths().new, self.loadList, self.loadError)
     }
     
     // MARK: - Blocks methods
@@ -23,6 +23,10 @@ class NewViewController: ListViewController {
     override func loadError(error: String) {
         self.tableView?.refreshControl?.endRefreshing()
         self.showAlertController(title: "", message: error)
+    }
+    
+    override func loadList(_ videos: [Video]) {
+        loadImages(videos, self.reloadViewWith, self.loadError)
     }
     
     override func reloadViewWith(_ videos: [Video]) {

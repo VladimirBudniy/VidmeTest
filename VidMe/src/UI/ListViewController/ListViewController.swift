@@ -27,7 +27,7 @@ class ListViewController: UITableViewController, AlertViewController {
     // MARK: - Private
     
     func load() {
-        loadVideos(URLPaths().featured, videosBlock: self.reloadViewWith, errorBlock: self.loadError)
+        loadVideos(URLPaths().featured, self.loadList, self.loadError)
     }
     
     func settingTableView() {
@@ -47,6 +47,10 @@ class ListViewController: UITableViewController, AlertViewController {
     func loadError(error: String) {
         self.tableView?.refreshControl?.endRefreshing()
         self.showAlertController(title: "", message: error)
+    }
+    
+    func loadList(_ videos: [Video]) {
+        loadImages(videos, self.reloadViewWith, self.loadError)
     }
     
     func reloadViewWith(_ videos: [Video]) {

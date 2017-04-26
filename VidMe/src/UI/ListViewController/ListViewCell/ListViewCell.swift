@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class ListViewCell: UITableViewCell {
     
@@ -15,6 +14,8 @@ class ListViewCell: UITableViewCell {
     @IBOutlet var videoNameLabel: UILabel?
     @IBOutlet var likesCountLabel: UILabel?
     @IBOutlet weak var separateView: UIView!
+    
+    var spinner: SpinnerView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,26 +26,30 @@ class ListViewCell: UITableViewCell {
     
     func fillWithModel(_ model: Video?, _ tableView: UITableView) {
         if let model = model {
-            self.videoImageView?.sd_setShowActivityIndicatorView(true)
-            self.videoImageView?.sd_setIndicatorStyle(.white)
-            
-            if let imageURL = model.imageURL {
-                self.videoImageView?.sd_setImage(with: URL(string: imageURL))
+            self.imageView?.show(&self.spinner)
+            self.settingCellSizeWith(model, tableView)
+
+            if let image = model.image {
+                self.videoImageView?.image = image
+                self.imageView?.remove(&self.spinner)
             }
             
             self.videoNameLabel?.text = model.name
             self.likesCountLabel?.text = ((model.likesCount)?.description)! + " " + "likes"
-            
-            self.settingCellSizeWith(tableView)
         }
     }
     
     // MARK: - Private
     
-    fileprivate func settingCellSizeWith(_ tableView: UITableView) {
-        let height = (tableView.frame.width / 1.3333).rounded()
-        self.videoImageView?.frame.size = CGSize(width: tableView.frame.width, height: height)
-        self.frame.size = CGSize(width: tableView.frame.width, height: height + 40)
+    fileprivate func settingCellSizeWith(_ model: Video?, _ tableView: UITableView) {
+        if let image = model?.image {
+            let value = (tableView.frame.size.width / image.size.width)
+            let height = (image.size.height * value).rounded()
+            let width = tableView.frame.width
+            
+            self.videoImageView?.frame.size = CGSize(width: width, height: height)
+            self.frame.size = CGSize(width: width, height: height + 40)
+        }
     }
     
 }
