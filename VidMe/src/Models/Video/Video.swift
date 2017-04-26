@@ -23,9 +23,4 @@ extension Video {
     static func create(_ id: String, _ name: String?, _ likesCount: Int?, _ videoURL: String? , _ imageURL: String?, _ image: UIImage? = nil) -> Video {
         return Video(id: id, name: name, likesCount:likesCount, videoURL: videoURL, imageURL: imageURL, image: image)
     }
-    
-    mutating func setImage(_ image: UIImage) {
-        self.image = image
-    }
-    
 }

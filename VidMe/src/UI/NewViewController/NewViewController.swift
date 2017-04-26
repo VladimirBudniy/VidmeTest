@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewViewController: ListViewController {
+class NewViewController: FeaturedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class NewViewController: ListViewController {
 //    }
 //    
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! ListViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! FeaturedViewCell
 //        cell.fillWithModel(self.videos[indexPath.row], tableView)
 //        tableView.rowHeight = cell.frame.height
 //        

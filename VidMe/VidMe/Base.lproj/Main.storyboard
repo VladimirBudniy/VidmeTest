@@ -13,13 +13,13 @@
         <!--Featured-->
         <scene sceneID="15W-uB-YlS">
             <objects>
-                <tableViewController id="cSu-Un-TVQ" customClass="ListViewController" customModule="VidMe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cSu-Un-TVQ" customClass="FeaturedViewController" customModule="VidMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="320" sectionHeaderHeight="28" sectionFooterHeight="28" id="BcR-8V-dcz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListViewCell" id="26g-Wc-OZP" customClass="ListViewCell" customModule="VidMe" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FeaturedViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeaturedViewCell" id="26g-Wc-OZP" customClass="FeaturedViewCell" customModule="VidMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="26g-Wc-OZP" id="mPf-FP-iXP">
@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListViewCell" id="yK9-cM-Y86" customClass="ListViewCell" customModule="VidMe" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FeaturedViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeaturedViewCell" id="yK9-cM-Y86" customClass="FeaturedViewCell" customModule="VidMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yK9-cM-Y86" id="btV-kf-6Ak">
