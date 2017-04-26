@@ -14,29 +14,30 @@ let userDefaults = UserDefaults.standard
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
+        let tabBarController = UITabBarController()
         
         if (userDefaults.value(forKey: "token") != nil) {
-            let featuredViewController = FeaturedViewController()
-            let newViewController = NewViewController()
-            let feedViewController = FeedViewController()
+            let featuredViewController = storyboard.instantiateViewController(withIdentifier: "FeaturedViewController")
+            let newViewController = storyboard.instantiateViewController(withIdentifier: "NewViewController")
+            let feedViewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController")
             
-            let collection = [featuredViewController, newViewController, feedViewController]
-            tabBarController.setViewControllers(collection, animated: true)
+            tabBarController.viewControllers = [featuredViewController, newViewController, feedViewController]
         } else {
-            let featuredViewController = FeaturedViewController()
-            let newViewController = NewViewController()
-            let loginViewController = LoginViewController()
+            let featuredViewController = storyboard.instantiateViewController(withIdentifier: "FeaturedViewController")
+            let newViewController = storyboard.instantiateViewController(withIdentifier: "NewViewController")
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             
-            let collection = [featuredViewController, newViewController, loginViewController]
-            tabBarController.setViewControllers(collection, animated: true)
+            tabBarController.viewControllers = [featuredViewController, newViewController, loginViewController]
         }
         
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
         
         return true
     }

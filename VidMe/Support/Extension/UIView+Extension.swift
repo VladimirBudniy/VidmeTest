@@ -29,8 +29,8 @@ extension UIView {
     
     func remove(_ spinner: inout SpinnerView?) {
         let view = spinner
-        UIView.animate(withDuration: 1.0, animations: {
-            view?.alpha = 0.1
+        UIView.animate(withDuration: 0.4, animations: {
+            view?.alpha = 0.0
         }, completion: { loaded in
             if loaded {
                 view?.removeFromSuperview()

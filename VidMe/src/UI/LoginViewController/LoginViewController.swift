@@ -49,16 +49,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
     
     func userCreate(_ bool: Bool) {
         if bool {
-            print("My token \(userDefaults.value(forKey: "token"))")
-            
-            // show follow videos
-            
+            self.reloadTabBarController()
         } else {
             self.loadError(error: AlertControllerConst().userNotFound)
         }
     }
     
     // MARK: - Private
+    
+    private func reloadTabBarController() {
+        let tabBarController = self.tabBarController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let featuredViewController = storyboard.instantiateViewController(withIdentifier: "FeaturedViewController")
+        let newViewController = storyboard.instantiateViewController(withIdentifier: "NewViewController")
+        let feedViewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController")
+        let controllers = [featuredViewController, newViewController, feedViewController]
+        
+        tabBarController?.setViewControllers(controllers, animated: true)
+        tabBarController?.selectedViewController = feedViewController
+    }
     
     private func showAlertController(title: String? = nil, message: String) {
         self.present(self.alertViewController(title: title, message: message), animated: true, completion: nil)

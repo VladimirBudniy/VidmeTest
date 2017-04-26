@@ -17,7 +17,8 @@ class FeedViewController: FeaturedViewController {
     }
     
     override func load() {
-        loadVideos(URLPaths().featured, self.loadList, self.loadError)
+        let parameters = ["offset": 1, "limit": 10]
+        loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
     }
     
     // MARK: - Blocks methods
@@ -33,31 +34,31 @@ class FeedViewController: FeaturedViewController {
     
     override func reloadViewWith(_ videos: [Video]) {
         if videos.count != 0 {
+            self.tableView.remove(&self.spinner)
             self.videos.append(contentsOf: videos)
             self.tableView?.reloadData()
-            self.tableView.remove(&self.spinner)
             self.tableView?.refreshControl?.endRefreshing()
         }
     }
     
-    // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.videos.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! FeaturedViewCell
-        cell.fillWithModel(self.videos[indexPath.row], tableView)
-        tableView.rowHeight = cell.frame.height
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let stringURL = self.videos[indexPath.row].videoURL {
-            self.playVideo(stringURL)
-        }
-    }
+//    // MARK: - Table view data source
+//    
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.videos.count
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! FeaturedViewCell
+//        cell.fillWithModel(self.videos[indexPath.row], tableView)
+//        tableView.rowHeight = cell.frame.height
+//        
+//        return cell
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if let stringURL = self.videos[indexPath.row].videoURL {
+//            self.playVideo(stringURL)
+//        }
+//    }
 
 }

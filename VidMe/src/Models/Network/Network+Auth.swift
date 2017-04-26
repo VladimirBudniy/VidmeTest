@@ -63,3 +63,8 @@ func checkAuthenticationSession() {
     }
 }
 
+
+func romoveAuthenticationSession() {
+
+}
+

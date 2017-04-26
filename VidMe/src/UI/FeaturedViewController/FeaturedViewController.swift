@@ -30,7 +30,8 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     // MARK: - Private
     
     func load() {
-        loadVideos(URLPaths().featured, self.loadList, self.loadError)
+        let parameters = ["offset": 1, "limit": 10]
+        loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
     }
     
     func settingTableView() {
@@ -57,6 +58,11 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     }
     
     func reloadViewWith(_ videos: [Video]) {
+        
+        
+        // add func fir refresh - remove all
+        
+        
         if videos.count != 0 {
             self.videos.append(contentsOf: videos)
             self.tableView?.reloadData()
@@ -74,7 +80,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     }
     
     @objc private func refreshLoad() {
-
+        self.load()
     }
     
     // MARK: - AVPlayerViewController

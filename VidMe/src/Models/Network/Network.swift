@@ -12,9 +12,8 @@ import Alamofire
 typealias error = (String) -> ()
 typealias videos = ([Video]) -> ()
 
-func loadVideos(_ stringURL: String, _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {
+func loadVideos(_ stringURL: String, _ parameters: [String: Any], _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {
     if let url = URL(string: stringURL) {
-        let parameters = ["offset": 1, "limit": 20]
         Alamofire.request(url,
                           method: .get,
                           parameters: parameters,
@@ -29,6 +28,10 @@ func loadVideos(_ stringURL: String, _ videosBlock:@escaping videos, _ errorBloc
                             }
                           })
     }
+}
+
+func loadFollowVideos(_ stringURL: String, _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {
+    
 }
 
 func loadImages(_ videos: [Video], _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {

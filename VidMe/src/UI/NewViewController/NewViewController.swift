@@ -17,7 +17,8 @@ class NewViewController: FeaturedViewController {
     }
     
     override func load() {
-        loadVideos(URLPaths().new, self.loadList, self.loadError)
+        let parameters = ["offset": 1, "limit": 10]
+        loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
     }
     
     // MARK: - Blocks methods
@@ -40,23 +41,23 @@ class NewViewController: FeaturedViewController {
         }
     }
     
-    // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.videos.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! FeaturedViewCell
-        cell.fillWithModel(self.videos[indexPath.row], tableView)
-        tableView.rowHeight = cell.frame.height
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let stringURL = self.videos[indexPath.row].videoURL {
-            self.playVideo(stringURL)
-        }
-    }
+//    // MARK: - Table view data source
+//    
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.videos.count
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! FeaturedViewCell
+//        cell.fillWithModel(self.videos[indexPath.row], tableView)
+//        tableView.rowHeight = cell.frame.height
+//        
+//        return cell
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if let stringURL = self.videos[indexPath.row].videoURL {
+//            self.playVideo(stringURL)
+//        }
+//    }
 }
