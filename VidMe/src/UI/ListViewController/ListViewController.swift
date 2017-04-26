@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class ListViewController: UITableViewController, AlertViewController {
     
@@ -89,7 +91,21 @@ class ListViewController: UITableViewController, AlertViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let stringURL = self.videos[indexPath.row].videoURL {
+            self.playVideo(stringURL)
+        }
+    }
+    
+    // MARK: - AVPlayerViewController
+    
+    func playVideo(_ url: String) {
+        let videoURL = URL(string: url)
+        let player = AVPlayer(url: videoURL!)
+        let controller = AVPlayerViewController()
+        controller.player = player
+        self.present(controller, animated: true) {
+            controller.player!.play()
+        }
     }
     
 }
