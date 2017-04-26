@@ -21,12 +21,23 @@ struct UsersPaths {
 }
 
 struct CheckEmailRange {
-    let emailRange = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+//    let emailRange = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    let emailRange = "[A-Za-z0-9]"
 }
 
 struct AlertControllerConst {
     let emailMessage = "Please check your email"
     let whitespaceMessage = "Please remove whitespace"
-//    let citiesQty = "The quantity of countries can't be more than 15 pcs!"
-//    let cityNotFound = "Error: Not found city"
+    let charactersQty = "Password must be at least 8 characters"
+    let erroValidation = "Please сheck specified data"
+    let userNotFound = "User with specified name not found"
+}
+
+struct AuthConst {
+    let username = "username"
+    let password = "password"
+    let auth = "auth"
+    let token = "token"
+    let user_id = "user_id"
+    let AccessToken = "AccessToken"
 }
