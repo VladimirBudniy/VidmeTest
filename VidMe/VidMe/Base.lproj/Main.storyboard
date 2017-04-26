@@ -177,7 +177,7 @@
         <!--Feed-->
         <scene sceneID="2eI-SH-oQV">
             <objects>
-                <viewController id="4Og-o4-7iT" sceneMemberID="viewController">
+                <viewController id="4Og-o4-7iT" customClass="LoginViewController" customModule="VidMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S2J-Im-lFQ"/>
                         <viewControllerLayoutGuide type="bottom" id="nPI-V7-9WP"/>
@@ -217,6 +217,14 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onLoginButton:" destination="4Og-o4-7iT" eventType="touchUpInside" id="Qgd-Hc-Lhf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -262,6 +270,11 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" id="1jD-DN-rrN"/>
+                    <connections>
+                        <outlet property="loginButton" destination="IXi-Yx-ChI" id="w5U-i5-0bC"/>
+                        <outlet property="loginTextField" destination="Twb-3k-dKR" id="KWs-cm-6Ew"/>
+                        <outlet property="passwordTextField" destination="nAO-Xt-WbV" id="sqx-rD-ip1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlX-Ee-KzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
