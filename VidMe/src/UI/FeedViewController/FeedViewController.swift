@@ -106,7 +106,7 @@ class FeedViewController: FeaturedViewController {
     
     @objc override func refreshLoad() {
         self.tableView?.refreshControl?.endRefreshing()
-        self.tableView?.show(&self.spinner)
+        self.tabBarController?.view.show(&self.spinner)
         checkAuthenticationSession(self.tokenCheck)
     }
     

@@ -60,6 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
     private func reloadTabBarController() {
         let tabBarController = self.tabBarController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
         let featuredViewController = storyboard.instantiateViewController(withIdentifier: "FeaturedViewController")
         let newViewController = storyboard.instantiateViewController(withIdentifier: "NewViewController")
         let feedViewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController")

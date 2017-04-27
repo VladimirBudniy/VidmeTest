@@ -52,7 +52,10 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         let tableView = self.tableView
         tableView?.contentInset.top = 20
         tableView?.contentInset.bottom = 49
-        tableView?.show(&self.spinner)
+        
+        
+        self.tabBarController?.view.show(&self.spinner)
+//        tableView?.show(&self.spinner)
         
         self.addRefreshControl()
     }
@@ -77,6 +80,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
             let videos = videos.sorted(by: {$0.datePublished! > $1.datePublished!})
             self.videos.append(contentsOf: videos)
             self.tableView?.reloadData()
+            self.tabBarController?.view.remove(&self.spinner)
             self.tableView.remove(&self.spinner)
 //            self.tableView?.refreshControl?.endRefreshing()
         }
@@ -92,7 +96,8 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     
     @objc func refreshLoad() {
         self.tableView?.refreshControl?.endRefreshing()
-        self.tableView?.show(&self.spinner)
+        self.tabBarController?.view.show(&self.spinner)
+//        self.tableView?.show(&self.spinner)
         self.load()
     }
     
