@@ -13,6 +13,7 @@
 		CF963A421EB09EF5004B7766 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF963A411EB09EF5004B7766 /* LoginViewController.swift */; };
 		CF963A441EB0C80E004B7766 /* Network+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF963A431EB0C80E004B7766 /* Network+Auth.swift */; };
 		CF963A471EB0D9B4004B7766 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF963A461EB0D9B4004B7766 /* FeedViewController.swift */; };
+		CFA835891EB1E3000070D8B6 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA835881EB1E3000070D8B6 /* Date+Extension.swift */; };
 		CFD66C7D1EAF216100944701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66C7C1EAF216100944701 /* AppDelegate.swift */; };
 		CFD66C821EAF216100944701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C801EAF216100944701 /* Main.storyboard */; };
 		CFD66C841EAF216100944701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD66C831EAF216100944701 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		CF963A411EB09EF5004B7766 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF963A431EB0C80E004B7766 /* Network+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Network+Auth.swift"; sourceTree = "<group>"; };
 		CF963A461EB0D9B4004B7766 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CFA835881EB1E3000070D8B6 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CFD66C791EAF216100944701 /* VidMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD66C7C1EAF216100944701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD66C811EAF216100944701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		CFD66CC61EAF550300944701 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CFA835881EB1E3000070D8B6 /* Date+Extension.swift */,
 				CFD66CD21EAF6DC500944701 /* UIView+Extension.swift */,
 			);
 			path = Extension;
@@ -382,6 +385,7 @@
 				CF963A441EB0C80E004B7766 /* Network+Auth.swift in Sources */,
 				CFD66CBF1EAF521B00944701 /* AlertViewController.swift in Sources */,
 				CFD66CB51EAF3D0000944701 /* Video+Parser.swift in Sources */,
+				CFA835891EB1E3000070D8B6 /* Date+Extension.swift in Sources */,
 				CFD66CD61EAF8E9900944701 /* NewViewController.swift in Sources */,
 				CF963A471EB0D9B4004B7766 /* FeedViewController.swift in Sources */,
 				CF963A3F1EB09C01004B7766 /* FeaturedViewController.swift in Sources */,

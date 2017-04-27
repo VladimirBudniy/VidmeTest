@@ -13,9 +13,16 @@ import AVFoundation
 class FeaturedViewController: UITableViewController, AlertViewController, UITabBarControllerDelegate {
     
     let alertViewController = UIAlertController()
+    let const = AuthConst()
+    let videoLimit = 10
     let identifier = String(describing: FeaturedViewCell.self)
     var videos = [Video]()
     var spinner: SpinnerView?
+    
+    // paganation 
+    var offset = 0
+    var totalVideListCount = 5374
+    
 
     // MARK: - View LifeCycle
     
@@ -29,9 +36,18 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     
     // MARK: - Private
     
-    func load() {
-        let parameters = ["offset": 1, "limit": 10]
-        loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
+    func load(offset: Int = 0, primaryLoad: Bool = true) {
+        if primaryLoad {
+            
+            self.videos.removeAll()
+            self.tableView.reloadData()
+            
+            let parameters = [const.offset: offset, const.limit: self.videoLimit]
+            loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
+        } else {
+            let parameters = [const.offset: offset, const.limit: self.videoLimit]
+            loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
+        }
     }
     
     func settingTableView() {
@@ -58,12 +74,8 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     }
     
     func reloadViewWith(_ videos: [Video]) {
-        
-        
-        // add func fir refresh - remove all
-        
-        
         if videos.count != 0 {
+            let videos = videos.sorted(by: {$0.datePublished! > $1.datePublished!})
             self.videos.append(contentsOf: videos)
             self.tableView?.reloadData()
             self.tableView.remove(&self.spinner)
@@ -115,17 +127,17 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         }
     }
     
-    // MARK: - UITabBarControllerDelegate
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let index = tabBarController.selectedIndex
-        if index == 2 {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        var offset = self.offset;
+        let section = tableView.numberOfSections - 1
+        let lastRow = tableView.numberOfRows(inSection: section) - 1
+
+        if indexPath.row == lastRow, lastRow < totalVideListCount {
+            offset += self.videoLimit + 1
             
-//            let controller = FeedViewController()
-            
+            self.load(offset: offset, primaryLoad: false)
+            self.offset = offset
         }
-        
-        print(index as Int)
     }
     
 }

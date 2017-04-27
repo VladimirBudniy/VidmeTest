@@ -12,13 +12,13 @@ import Alamofire
 typealias error = (String) -> ()
 typealias videos = ([Video]) -> ()
 
-func loadVideos(_ stringURL: String, _ parameters: [String: Any], _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {
+func loadVideos(_ stringURL: String, _ parameters: [String: Any], headers: [String: String]? = nil, _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {
     if let url = URL(string: stringURL) {
         Alamofire.request(url,
                           method: .get,
                           parameters: parameters,
                           encoding: URLEncoding.default,
-                          headers: nil).responseJSON(completionHandler: { respons in
+                          headers: headers).responseJSON(completionHandler: { respons in
                             if let JSON = respons.value as? [String: Any], respons.result.isSuccess {
                                 videosBlock(Video.parsJSON(JSON))
                             }
@@ -28,10 +28,6 @@ func loadVideos(_ stringURL: String, _ parameters: [String: Any], _ videosBlock:
                             }
                           })
     }
-}
-
-func loadFollowVideos(_ stringURL: String, _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {
-    
 }
 
 func loadImages(_ videos: [Video], _ videosBlock:@escaping videos, _ errorBlock: @escaping error) {

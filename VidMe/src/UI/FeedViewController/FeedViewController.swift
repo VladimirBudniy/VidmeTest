@@ -16,31 +16,43 @@ class FeedViewController: FeaturedViewController {
         super.viewDidLoad()
     }
     
-    override func load() {
-        let parameters = ["offset": 1, "limit": 10]
-        loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
-    }
-    
-    // MARK: - Blocks methods
-    
-    override func loadError(error: String) {
-        self.tableView?.refreshControl?.endRefreshing()
-        self.showAlertController(title: "", message: error)
-    }
-    
-    override func loadList(_ videos: [Video]) {
-        loadImages(videos, self.reloadViewWith, self.loadError)
-    }
-    
-    override func reloadViewWith(_ videos: [Video]) {
-        if videos.count != 0 {
-            self.tableView.remove(&self.spinner)
-            self.videos.append(contentsOf: videos)
-            self.tableView?.reloadData()
-            self.tableView?.refreshControl?.endRefreshing()
+    override func load(offset: Int = 0, primaryLoad: Bool = true) {
+        if primaryLoad {
+            self.videos.removeAll()
+            self.tableView.reloadData()
+
+            let token = userDefaults.value(forKey: const.token) as! String
+            
+            let headers = [const.AccessToken: token] as [String: String]
+            let parameters = [const.token: token, const.limit: 50] as [String : Any]
+            
+            loadVideos(URLPaths().following, parameters, headers: headers, self.loadList, self.loadError)
+        } else {
+            let parameters = [const.AccessToken: userDefaults.value(forKey: const.token), const.limit: self.videoLimit]
+            loadVideos(URLPaths().following, parameters, self.loadList, self.loadError)
         }
     }
     
+//    // MARK: - Blocks methods
+//    
+//    override func loadError(error: String) {
+//        self.tableView?.refreshControl?.endRefreshing()
+//        self.showAlertController(title: "", message: error)
+//    }
+//    
+//    override func loadList(_ videos: [Video]) {
+//        loadImages(videos, self.reloadViewWith, self.loadError)
+//    }
+//    
+//    override func reloadViewWith(_ videos: [Video]) {
+//        if videos.count != 0 {
+//            self.tableView.remove(&self.spinner)
+//            self.videos.append(contentsOf: videos)
+//            self.tableView?.reloadData()
+//            self.tableView?.refreshControl?.endRefreshing()
+//        }
+//    }
+//
 //    // MARK: - Table view data source
 //    
 //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,5 +72,9 @@ class FeedViewController: FeaturedViewController {
 //            self.playVideo(stringURL)
 //        }
 //    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+    }
 
 }

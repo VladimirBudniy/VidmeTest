@@ -16,30 +16,37 @@ class NewViewController: FeaturedViewController {
         super.viewDidLoad()
     }
     
-    override func load() {
-        let parameters = ["offset": 1, "limit": 10]
-        loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
-    }
-    
-    // MARK: - Blocks methods
-    
-    override func loadError(error: String) {
-        self.tableView?.refreshControl?.endRefreshing()
-        self.showAlertController(title: "", message: error)
-    }
-    
-    override func loadList(_ videos: [Video]) {
-        loadImages(videos, self.reloadViewWith, self.loadError)
-    }
-    
-    override func reloadViewWith(_ videos: [Video]) {
-        if videos.count != 0 {
-            self.videos.append(contentsOf: videos)
-            self.tableView?.reloadData()
-            self.tableView.remove(&self.spinner)
-            self.tableView?.refreshControl?.endRefreshing()
+    override func load(offset: Int = 0, primaryLoad: Bool = true) {
+        if primaryLoad {
+            self.videos.removeAll()
+            self.tableView.reloadData()
+            let parameters = [const.offset: offset, const.limit: self.videoLimit]
+            loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
+        } else {
+            let parameters = [const.offset: offset, const.limit: self.videoLimit]
+            loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
         }
     }
+    
+//    // MARK: - Blocks methods
+//    
+//    override func loadError(error: String) {
+//        self.tableView?.refreshControl?.endRefreshing()
+//        self.showAlertController(title: "", message: error)
+//    }
+//    
+//    override func loadList(_ videos: [Video]) {
+//        loadImages(videos, self.reloadViewWith, self.loadError)
+//    }
+//    
+//    override func reloadViewWith(_ videos: [Video]) {
+//        if videos.count != 0 {
+//            self.videos.append(contentsOf: videos)
+//            self.tableView?.reloadData()
+//            self.tableView.remove(&self.spinner)
+//            self.tableView?.refreshControl?.endRefreshing()
+//        }
+//    }
     
 //    // MARK: - Table view data source
 //    

@@ -87,6 +87,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Featured" id="INv-vc-tXZ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK0-iO-wPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,6 +170,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="New" id="3Dj-9a-Jev"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wom-Bf-TB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,7 +258,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgR-mx-tmr">
-                                <rect key="frame" x="0.0" y="666" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="617" width="375" height="1"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="nPL-D5-R5j"/>
@@ -276,6 +278,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" id="1jD-DN-rrN"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="IXi-Yx-ChI" id="w5U-i5-0bC"/>
                         <outlet property="loginTextField" destination="Twb-3k-dKR" id="KWs-cm-6Ew"/>
@@ -363,6 +366,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Feed" id="yjw-Iy-yBN"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXj-w0-oGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

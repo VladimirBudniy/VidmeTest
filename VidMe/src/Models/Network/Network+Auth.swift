@@ -27,7 +27,7 @@ func createAuthenticationSession(_ login: String, _ password: String, _ bool:@es
                                 let auth = json[const.auth] as! [String: Any]
                                 let token = auth[const.token] as! String
                                 let user_id = auth[const.user_id] as! String
-                                
+
                                 userDefaults.set(login, forKey: const.username)
                                 userDefaults.set(password, forKey: const.password)
                                 userDefaults.set(token, forKey: const.token)

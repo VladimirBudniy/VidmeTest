@@ -12,6 +12,7 @@ import UIKit
 struct Video {
     var id: String?
     var name: String?
+    var datePublished: Date?
     var likesCount: Int?
     var videoURL: String?
     var imageURL: String?
@@ -20,7 +21,7 @@ struct Video {
 
 extension Video {
 
-    static func create(_ id: String, _ name: String?, _ likesCount: Int?, _ videoURL: String? , _ imageURL: String?, _ image: UIImage? = nil) -> Video {
-        return Video(id: id, name: name, likesCount:likesCount, videoURL: videoURL, imageURL: imageURL, image: image)
+    static func create(_ id: String, _ name: String?, _ datePublished: Date?, _ likesCount: Int?, _ videoURL: String? , _ imageURL: String?, _ image: UIImage? = nil) -> Video {
+        return Video(id: id, name: name, datePublished: datePublished, likesCount:likesCount, videoURL: videoURL, imageURL: imageURL, image: image)
     }
 }

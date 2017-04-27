@@ -40,4 +40,6 @@ struct AuthConst {
     let token = "token"
     let user_id = "user_id"
     let AccessToken = "AccessToken"
+    let offset = "offset"
+    let limit = "limit"
 }

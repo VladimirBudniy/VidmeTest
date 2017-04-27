@@ -17,11 +17,15 @@ extension Video {
             for item in array {
                 let id = item["video_id"] as! String
                 let name = item["title"] as! String
+                
+                let stringDate = item["date_published"] as! String
+                let datePublished = Date.convertString(dateString: stringDate)
+                
                 let likesCount = item["likes_count"] as! Int
                 let videoUrl = item["complete_url"] as! String
                 let imageUrl = item["thumbnail_url"] as! String
                 
-                videos.append(Video.create(id, name, likesCount, videoUrl, imageUrl))
+                videos.append(Video.create(id, name, datePublished, likesCount, videoUrl, imageUrl))
             }
         }
         
