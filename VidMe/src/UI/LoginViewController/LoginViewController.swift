@@ -152,7 +152,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
         default:
             break
         }
-
     }
 
 }

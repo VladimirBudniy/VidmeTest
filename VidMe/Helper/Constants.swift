@@ -30,7 +30,7 @@ struct AlertControllerConst {
     let whitespaceMessage = "Please remove whitespace"
     let charactersQty = "Password must be at least 8 characters"
     let erroValidation = "Please сheck specified data"
-    let userNotFound = "User with specified name not found"
+    let userNotFound = "User with specified name not found or check internet connection"
 }
 
 struct AuthConst {

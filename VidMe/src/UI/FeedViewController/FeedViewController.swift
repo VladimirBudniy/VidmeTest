@@ -16,19 +16,16 @@ class FeedViewController: FeaturedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.addLogoutButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.logOutButton?.alpha = 1
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-    
         self.logOutButton?.alpha = 0
     }
     

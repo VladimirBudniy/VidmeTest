@@ -69,6 +69,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     func loadError(error: String) {
         self.tableView?.refreshControl?.endRefreshing()
         self.showAlertController(title: "", message: error)
+        self.tabBarController?.view.remove(&self.spinner)
     }
     
     func loadList(_ videos: [Video]) {
