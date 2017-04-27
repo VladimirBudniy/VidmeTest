@@ -10,10 +10,11 @@ import Foundation
 import Alamofire
 
 typealias userCreate = (Bool) -> ()
+typealias tokenCheck = (Bool) -> ()
 
 let const = AuthConst()
 
-func createAuthenticationSession(_ login: String, _ password: String, _ bool:@escaping userCreate){
+func createAuthenticationSession(_ login: String, _ password: String, _ isCreate:@escaping userCreate){
     if let url = URL(string: UsersPaths().create) {
         let parameters = [const.username: login, const.password: password]
         
@@ -33,31 +34,29 @@ func createAuthenticationSession(_ login: String, _ password: String, _ bool:@es
                                 userDefaults.set(token, forKey: const.token)
                                 userDefaults.set(user_id, forKey: const.user_id)
                                 
-                                bool(true)
+                                isCreate(true)
                             }
                             
                             if response.error != nil {
-                                bool(false)
+                                isCreate(false)
                             }
                           })
     }
 }
 
-func checkAuthenticationSession() {
+func checkAuthenticationSession(_ isCheck:@escaping tokenCheck) {
     if let token = userDefaults.value(forKey: const.token) {
         if let url = URL(string: UsersPaths().check) {
             let currentToken = token as! String
-            
             let parameters = [const.token: currentToken]
             let headers = [const.AccessToken: currentToken]
-            
             Alamofire.request(url,
                               method: .post,
                               parameters: parameters,
                               encoding: JSONEncoding.default,
                               headers: headers).responseJSON(completionHandler: { response  in
                                 let json = response.value as! [String: Any]
-                                print(json)
+                                isCheck(json["status"] as! Bool)
                               })
         }
     }

@@ -16,7 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        settingStoryboard()
+
+        return true
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+    }
+
+    // MARK: - Private
     
+    fileprivate func settingStoryboard() {
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -38,27 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        
-        return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-    }
-
-    
-    
 
 }
 

@@ -21,8 +21,8 @@ extension UIView {
             view?.spinner?.startAnimating()
         }
         
-        UIView.animate(withDuration: 1.0, animations: {
-            view?.alpha = 0.6
+        UIView.animate(withDuration: 0.4, animations: {
+            view?.alpha = 0.3
             self.addSubview(view!)
         })
     }

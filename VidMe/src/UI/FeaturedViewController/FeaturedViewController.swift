@@ -21,7 +21,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     
     // paganation 
     var offset = 0
-    var totalVideListCount = 5374
+    var totalVideListCount = 1000 // ?????????????????????????????????????????????????????????
     
 
     // MARK: - View LifeCycle
@@ -38,10 +38,8 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     
     func load(offset: Int = 0, primaryLoad: Bool = true) {
         if primaryLoad {
-            
             self.videos.removeAll()
             self.tableView.reloadData()
-            
             let parameters = [const.offset: offset, const.limit: self.videoLimit]
             loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
         } else {
@@ -53,6 +51,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     func settingTableView() {
         let tableView = self.tableView
         tableView?.contentInset.top = 20
+        tableView?.contentInset.bottom = 49
         tableView?.show(&self.spinner)
         
         self.addRefreshControl()
@@ -79,19 +78,21 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
             self.videos.append(contentsOf: videos)
             self.tableView?.reloadData()
             self.tableView.remove(&self.spinner)
-            self.tableView?.refreshControl?.endRefreshing()
+//            self.tableView?.refreshControl?.endRefreshing()
         }
     }
     
     // MARK: - UIRefreshControl
     
-    private func addRefreshControl() {
+    func addRefreshControl() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshLoad), for: .valueChanged)
         self.tableView.refreshControl = refresh
     }
     
-    @objc private func refreshLoad() {
+    @objc func refreshLoad() {
+        self.tableView?.refreshControl?.endRefreshing()
+        self.tableView?.show(&self.spinner)
         self.load()
     }
     
@@ -134,7 +135,6 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
 
         if indexPath.row == lastRow, lastRow < totalVideListCount {
             offset += self.videoLimit + 1
-            
             self.load(offset: offset, primaryLoad: false)
             self.offset = offset
         }

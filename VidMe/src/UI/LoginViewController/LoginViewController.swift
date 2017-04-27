@@ -47,8 +47,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
         self.showAlertController(title: "", message: error)
     }
     
-    func userCreate(_ bool: Bool) {
-        if bool {
+    func userCreate(_ isCreate: Bool) {
+        if isCreate {
             self.reloadTabBarController()
         } else {
             self.loadError(error: AlertControllerConst().userNotFound)
@@ -77,8 +77,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
     
     private func isValidEmail(text: String?) -> Bool {
 //        let emailCheck = NSPredicate(format:"SELF MATCHES %@", CheckEmailRange().emailRange)
-//        let bool = emailCheck.evaluate(with: text)
-//        if bool == false {
+//        let isCheck = emailCheck.evaluate(with: text)
+//        if isCheck == false {
 //            self.showAlertController(message: AlertControllerConst().emailMessage)
 //        }
         return true
@@ -86,12 +86,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
     
     private func isValidPassword(text: String?) -> Bool {
         let passwordCheck = text
-        let bool = (passwordCheck?.characters.count)! >= 8
-        if bool == false {
+        let isCheck = (passwordCheck?.characters.count)! >= 8
+        if isCheck == false {
             self.showAlertController(message: AlertControllerConst().charactersQty)
         }
         
-        return bool
+        return isCheck
     }
     
     private func checkWhitespace(string: String?) -> Bool {
@@ -108,19 +108,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case let textField where textField == self.loginTextField:
-            let bool = self.isValidEmail(text: textField.text)
-            if bool == false {
+            let isValid = self.isValidEmail(text: textField.text)
+            if isValid == false {
                 textField.text = ""
             }
             
             self.passwordTextField?.becomeFirstResponder()
-            return bool
+            return isValid
             
         case let textField where textField == self.passwordTextField:
-            let bool = self.isValidPassword(text: textField.text)
+            let isValid = self.isValidPassword(text: textField.text)
             self.passwordTextField?.endEditing(true)
             
-            return bool
+            return isValid
             
         default:
             return true
