@@ -10,12 +10,26 @@ import UIKit
 
 class FeedViewController: FeaturedViewController {
 
+    var logOutButton: UIButton?
+    
     // MARK: - View LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.addLogoutButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.logOutButton?.alpha = 1
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    
+        self.logOutButton?.alpha = 0
     }
     
     override func load(offset: Int = 0, primaryLoad: Bool = true) {
@@ -33,8 +47,7 @@ class FeedViewController: FeaturedViewController {
         if isCheck {
             self.load()
         } else {
-            self.reloadTabBarController()
-            UserDefaults.resetStandardUserDefaults()
+            self.logOut()
             self.loadError(error: AlertControllerConst().userNotFound)
         }
     }
@@ -42,7 +55,33 @@ class FeedViewController: FeaturedViewController {
     // MARK: - Private
 
     private func addLogoutButton() {
+        let tabBarController = self.tabBarController
+        let frame = tabBarController?.view.frame
+        let tabBarHeight = tabBarController?.tabBar.frame.height
+        let y = (frame?.height)! - (tabBarHeight! * 2)
+        let logOutButton = UIButton(frame: CGRect(x: 0.0, y: y, width: (frame?.width)!, height: tabBarHeight!))
 
+        let atributes = [
+            NSFontAttributeName : UIFont(name: "Marker Felt", size: 18)!,
+            NSForegroundColorAttributeName : UIColor.red] as [String : Any]
+        
+        let stringAtributes = NSAttributedString(string: "Logout", attributes: atributes)
+        
+        logOutButton.backgroundColor = UIColor.gray
+        logOutButton.addTarget(self, action:  #selector(onLogoutButton), for: .touchUpInside)
+        logOutButton.setAttributedTitle(stringAtributes, for: .normal)
+        
+        self.logOutButton = logOutButton
+        tabBarController?.view.addSubview(logOutButton)
+    }
+    
+    @objc private func onLogoutButton() {
+        self.logOut()
+    }
+
+    private func logOut() {
+        self.reloadTabBarController()
+        self.clearUserDefaults()
     }
     
     private func reloadTabBarController() {
@@ -57,6 +96,12 @@ class FeedViewController: FeaturedViewController {
         tabBarController?.selectedViewController = feedViewController
     }
     
+    private func clearUserDefaults() {
+        for key in userDefaults.dictionaryRepresentation().keys {
+            userDefaults.removeObject(forKey: key)
+        }
+    }
+    
     // MARK: - UIRefreshControl
     
     @objc override func refreshLoad() {
@@ -65,9 +110,7 @@ class FeedViewController: FeaturedViewController {
         checkAuthenticationSession(self.tokenCheck)
     }
     
-    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
     }
-
 }

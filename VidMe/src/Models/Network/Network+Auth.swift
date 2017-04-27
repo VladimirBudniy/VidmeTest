@@ -54,16 +54,11 @@ func checkAuthenticationSession(_ isCheck:@escaping tokenCheck) {
                               method: .post,
                               parameters: parameters,
                               encoding: JSONEncoding.default,
-                              headers: headers).responseJSON(completionHandler: { response  in
+                              headers: headers).responseJSON(completionHandler: { response  in                                
                                 let json = response.value as! [String: Any]
                                 isCheck(json["status"] as! Bool)
                               })
         }
     }
-}
-
-
-func romoveAuthenticationSession() {
-
 }
 
