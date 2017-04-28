@@ -16,15 +16,8 @@ class NewViewController: FeaturedViewController {
         super.viewDidLoad()
     }
     
-    override func load(offset: Int = 0, primaryLoad: Bool = true) {
-        if primaryLoad {
-            self.videos.removeAll()
-            self.tableView.reloadData()
-            let parameters = [const.offset: offset, const.limit: self.videoLimit]
-            loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
-        } else {
-            let parameters = [const.offset: offset, const.limit: self.videoLimit]
-            loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
-        }
+    override func prepareForLoad() {
+        let parameters = [const.offset: offset, const.limit: self.videoLimit]
+        loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
     }
 }

@@ -291,6 +291,7 @@
 				TargetAttributes = {
 					CFD66C781EAF216100944701 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5K3KLF8BV2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -516,6 +517,7 @@
 			baseConfigurationReference = 7F6CDDB6D1A45DABBE0A3D4C /* Pods-VidMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5K3KLF8BV2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/libwebp",
@@ -535,6 +537,7 @@
 			baseConfigurationReference = 623494DFAABA646D25FEA8CF /* Pods-VidMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5K3KLF8BV2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/libwebp",

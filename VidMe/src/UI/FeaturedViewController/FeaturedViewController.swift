@@ -35,17 +35,24 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         self.load()
     }
     
-    // MARK: - Private
+    override func viewWillDisappear(_ animated: Bool) {
+        self.playCell?.removePlayer()
+    }
+    
+    // MARK: - Public
+    
+    func prepareForLoad() {
+        let parameters = [const.offset: offset, const.limit: self.videoLimit]
+        loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
+    }
     
     func load(offset: Int = 0, primaryLoad: Bool = true) {
         if primaryLoad {
             self.videos.removeAll()
             self.tableView.reloadData()
-            let parameters = [const.offset: offset, const.limit: self.videoLimit]
-            loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
+            self.prepareForLoad()
         } else {
-            let parameters = [const.offset: offset, const.limit: self.videoLimit]
-            loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
+            self.prepareForLoad()
         }
     }
     
