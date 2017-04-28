@@ -11,21 +11,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view alpha="0.40000000000000002" contentMode="scaleToFill" id="iN0-l3-epB" customClass="SpinnerView" customModule="VidMe" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SpinnerView" customModule="VidMe" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-4G-h1W">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wrJ-U5-HgA">
                     <rect key="frame" x="178" y="323.5" width="20" height="20"/>
                     <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="BdD-4G-h1W" secondAttribute="trailing" id="OLg-JI-3SC"/>
+                <constraint firstItem="BdD-4G-h1W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aux-2K-r5k"/>
                 <constraint firstItem="wrJ-U5-HgA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="f9h-7G-JVf"/>
+                <constraint firstAttribute="bottom" secondItem="BdD-4G-h1W" secondAttribute="bottom" id="lht-KH-4lN"/>
                 <constraint firstItem="wrJ-U5-HgA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="obg-rF-SBX"/>
+                <constraint firstItem="BdD-4G-h1W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="stb-GQ-vMD"/>
             </constraints>
             <connections>
+                <outlet property="backView" destination="BdD-4G-h1W" id="SMU-c9-ZEj"/>
                 <outlet property="spinner" destination="wrJ-U5-HgA" id="21c-en-Kw3"/>
             </connections>
             <point key="canvasLocation" x="-83" y="-283"/>

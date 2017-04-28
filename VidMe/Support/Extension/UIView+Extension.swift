@@ -22,7 +22,7 @@ extension UIView {
         }
         
         UIView.animate(withDuration: 0.4, animations: {
-            view?.alpha = 0.3
+            view?.backView?.alpha = 0.3
             self.addSubview(view!)
         })
     }
@@ -30,7 +30,7 @@ extension UIView {
     func remove(_ spinner: inout SpinnerView?) {
         let view = spinner
         UIView.animate(withDuration: 0.4, animations: {
-            view?.alpha = 0.0
+            view?.backView?.alpha = 0.0
         }, completion: { loaded in
             if loaded {
                 view?.removeFromSuperview()

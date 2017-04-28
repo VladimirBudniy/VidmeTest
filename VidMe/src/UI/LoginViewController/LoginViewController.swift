@@ -118,10 +118,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, AlertViewContr
             return isValid
             
         case let textField where textField == self.passwordTextField:
-            let isValid = self.isValidPassword(text: textField.text)
             self.passwordTextField?.endEditing(true)
             
-            return isValid
+            return true
             
         default:
             return true

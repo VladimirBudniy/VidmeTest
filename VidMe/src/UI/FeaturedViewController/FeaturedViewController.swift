@@ -19,10 +19,11 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     var videos = [Video]()
     var spinner: SpinnerView?
     
-    // paganation 
-    var offset = 0
-    var totalVideListCount = 1000 // ?????????????????????????????????????????????????????????
+    var playCell: FeaturedViewCell?
     
+    // pagination
+    var offset = 0
+    var totalVideListCount = 1000 // abstract limit, we can added limit from JSON for videos.
 
     // MARK: - View LifeCycle
     
@@ -52,11 +53,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         let tableView = self.tableView
         tableView?.contentInset.top = 20
         tableView?.contentInset.bottom = 49
-        
-        
         self.tabBarController?.view.show(&self.spinner)
-//        tableView?.show(&self.spinner)
-        
         self.addRefreshControl()
     }
     
@@ -83,7 +80,6 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
             self.tableView?.reloadData()
             self.tabBarController?.view.remove(&self.spinner)
             self.tableView.remove(&self.spinner)
-//            self.tableView?.refreshControl?.endRefreshing()
         }
     }
     
@@ -114,7 +110,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         }
     }
 
-    // MARK: - TableViewDataSource
+    // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.videos.count
@@ -127,6 +123,8 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
 
         return cell
     }
+
+    // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let stringURL = self.videos[indexPath.row].videoURL {
@@ -143,6 +141,29 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
             offset += self.videoLimit + 1
             self.load(offset: offset, primaryLoad: false)
             self.offset = offset
+        }
+    }
+    
+    // MARK: - UIScrollViewDelegate
+
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset
+        let bounds = scrollView.bounds
+        let size = bounds.size
+        let y = offset.y + (size.height / 2)
+        
+        if y > 0 {
+            if let centerCell = self.tableView.cellForRow(at: self.tableView.indexPathForRow(at: CGPoint(x: 0.0, y: y))!) {
+                let cell = centerCell as! FeaturedViewCell
+                
+                if self.playCell != cell {
+                    self.playCell?.removePlayer()
+                    cell.addPlayer()
+                    self.playCell = cell
+                } else {
+                    
+                }
+            }
         }
     }
     

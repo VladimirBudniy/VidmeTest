@@ -11,7 +11,8 @@ import UIKit
 class SpinnerView: UIView {
     
     @IBOutlet var spinner: UIActivityIndicatorView?
-
+    @IBOutlet var backView: UIView?
+    
     // MARK: - Public
     
     static func loadSpinner() -> SpinnerView? {
