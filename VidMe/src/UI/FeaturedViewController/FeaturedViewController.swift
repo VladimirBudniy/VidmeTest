@@ -155,7 +155,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     }
     
     // MARK: - UIScrollViewDelegate
-
+    
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         let bounds = scrollView.bounds
@@ -163,15 +163,18 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         let y = offset.y + ((size.height - scrollView.contentInset.top) / 2)
         
         if y > 0 {
-            if let centerCell = self.tableView.cellForRow(at: self.tableView.indexPathForRow(at: CGPoint(x: 0.0, y: y))!) {
-                let cell = centerCell as! FeaturedViewCell
-                
-                if self.playCell != cell {
-                    self.playCell?.removePlayer()
-                    cell.addPlayer()
-                    self.playCell = cell
-                } else {
+            let point = CGPoint(x: 0.0, y: y)
+            if let indexPath = self.tableView.indexPathForRow(at: point) {
+                if let centerCell = self.tableView.cellForRow(at: indexPath) {
+                    let cell = centerCell as! FeaturedViewCell
                     
+                    if self.playCell != cell {
+                        self.playCell?.removePlayer()
+                        cell.addPlayer()
+                        self.playCell = cell
+                    } else {
+                        
+                    }
                 }
             }
         }
