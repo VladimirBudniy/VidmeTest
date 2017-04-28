@@ -127,6 +127,9 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! FeaturedViewCell
+        cell.removePlayer()
+        
         if let stringURL = self.videos[indexPath.row].videoURL {
             self.playVideo(stringURL)
         }
@@ -150,7 +153,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         let offset = scrollView.contentOffset
         let bounds = scrollView.bounds
         let size = bounds.size
-        let y = offset.y + (size.height / 2)
+        let y = offset.y + ((size.height - scrollView.contentInset.top) / 2)
         
         if y > 0 {
             if let centerCell = self.tableView.cellForRow(at: self.tableView.indexPathForRow(at: CGPoint(x: 0.0, y: y))!) {
