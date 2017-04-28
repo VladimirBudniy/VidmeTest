@@ -16,7 +16,7 @@ class NewViewController: FeaturedViewController {
         super.viewDidLoad()
     }
     
-    override func prepareForLoad() {
+    override func prepareForLoad(_ offset: Int) {
         let parameters = [const.offset: offset, const.limit: self.videoLimit]
         loadVideos(URLPaths().new, parameters, self.loadList, self.loadError)
     }

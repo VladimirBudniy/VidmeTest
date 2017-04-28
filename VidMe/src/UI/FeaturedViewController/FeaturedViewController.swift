@@ -41,7 +41,7 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     
     // MARK: - Public
     
-    func prepareForLoad() {
+    func prepareForLoad(_ offset: Int) {
         let parameters = [const.offset: offset, const.limit: self.videoLimit]
         loadVideos(URLPaths().featured, parameters, self.loadList, self.loadError)
     }
@@ -50,9 +50,9 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         if primaryLoad {
             self.videos.removeAll()
             self.tableView.reloadData()
-            self.prepareForLoad()
+            self.prepareForLoad(offset)
         } else {
-            self.prepareForLoad()
+            self.prepareForLoad(offset)
         }
     }
     
@@ -99,9 +99,9 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
     }
     
     @objc func refreshLoad() {
+        self.playCell?.removePlayer()
         self.tableView?.refreshControl?.endRefreshing()
         self.tabBarController?.view.show(&self.spinner)
-//        self.tableView?.show(&self.spinner)
         self.load()
     }
     
@@ -162,7 +162,9 @@ class FeaturedViewController: UITableViewController, AlertViewController, UITabB
         let size = bounds.size
         let y = offset.y + ((size.height - scrollView.contentInset.top) / 2)
         
-        if y > 0 {
+        if y <= 0 {
+            print("Hello")
+        } else {
             let point = CGPoint(x: 0.0, y: y)
             if let indexPath = self.tableView.indexPathForRow(at: point) {
                 if let centerCell = self.tableView.cellForRow(at: indexPath) {
