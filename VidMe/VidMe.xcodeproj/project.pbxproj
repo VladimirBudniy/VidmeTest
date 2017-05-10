@@ -21,7 +21,6 @@
 		CFD66CA51EAF309D00944701 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CA41EAF309D00944701 /* Video.swift */; };
 		CFD66CB01EAF386000944701 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CAF1EAF386000944701 /* Constants.swift */; };
 		CFD66CB31EAF3CDB00944701 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CB21EAF3CDB00944701 /* Network.swift */; };
-		CFD66CB51EAF3D0000944701 /* Video+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CB41EAF3D0000944701 /* Video+Parser.swift */; };
 		CFD66CBF1EAF521B00944701 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CB91EAF521B00944701 /* AlertViewController.swift */; };
 		CFD66CC11EAF521B00944701 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66CBD1EAF521B00944701 /* SpinnerView.swift */; };
 		CFD66CC21EAF521B00944701 /* SpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD66CBE1EAF521B00944701 /* SpinnerView.xib */; };
@@ -50,7 +49,6 @@
 		CFD66CAB1EAF343900944701 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD66CAF1EAF386000944701 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFD66CB21EAF3CDB00944701 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		CFD66CB41EAF3D0000944701 /* Video+Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Video+Parser.swift"; sourceTree = "<group>"; };
 		CFD66CB91EAF521B00944701 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		CFD66CBD1EAF521B00944701 /* SpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		CFD66CBE1EAF521B00944701 /* SpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpinnerView.xib; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				CFD66CA41EAF309D00944701 /* Video.swift */,
-				CFD66CB41EAF3D0000944701 /* Video+Parser.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 				CFD66C7D1EAF216100944701 /* AppDelegate.swift in Sources */,
 				CF963A441EB0C80E004B7766 /* Network+Auth.swift in Sources */,
 				CFD66CBF1EAF521B00944701 /* AlertViewController.swift in Sources */,
-				CFD66CB51EAF3D0000944701 /* Video+Parser.swift in Sources */,
 				CFA835891EB1E3000070D8B6 /* Date+Extension.swift in Sources */,
 				CFD66CD61EAF8E9900944701 /* NewViewController.swift in Sources */,
 				CF963A471EB0D9B4004B7766 /* FeedViewController.swift in Sources */,

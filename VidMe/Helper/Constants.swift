@@ -2,7 +2,7 @@
 //  Constants.swift
 //  VidMeTest
 //
-//  Created by Nikola Andriiev on 24.11.16.
+//  Created by Vladimir Budniy on 4/25/17.
 //  Copyright © 2016 Andriiev.Mykola. All rights reserved.
 //
 
